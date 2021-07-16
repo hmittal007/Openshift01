@@ -1,0 +1,41 @@
+Let us start deploying ARO using Az cli
+
+LOCATION=westeurope
+RESOURCEGROUP=aro-rg
+CLUSTER=aro01
+
+az group create --name $RESOURCEGROUP --location $LOCATION   #create a resource group
+
+#create aro vnet
+az network vnet create \
+ --resource-group $RESOURCEGROUP \
+ --name aro-vnet \
+ --address-prefixes 10.0.0.0/22
+
+#create a subnet for master nodes with service endpoint to allow access to container registry
+az network vnet subnet create \
+ --resource-group $RESOURCEGROUP \
+ --vnet-name aro-vnet \
+ --name master-sub \
+ --address-prefixes 10.0.0.0/23 \
+ --service-endpoints Microsoft.ContainerRegistry \
+ --disable-private-link-service-network-policies true
+
+#create a subnet for worker nodes with service endpoint to allow access to container registry
+az network vnet subnet create \
+ --resource-group $RESOURCEGROUP \
+ --vnet-name aro-vnet \
+ --name worker-sub \
+ --address-prefixes 10.0.2.0/23 \
+ --service-endpoints Microsoft.ContainerRegistry \
+ --disable-private-link-service-network-policies true
+
+
+#create aro cluster using vnet and subnets in the same resource group
+az aro create \
+--resource-group $RESOURCEGROUP \
+--name $CLUSTER \
+--vnet aro-vnet \
+--master-subnet master-sub \
+--worker-subnet worker-sub \
+--pull-secret @pull-secret.txt

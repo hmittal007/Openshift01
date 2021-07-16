@@ -1,0 +1,61 @@
+On windows workstation.
+
+Install vscode as well.
+https://code.visualstudio.com/download
+
+Install Azure CLI version 2.6.0 or later. (az --version) on your workstation
+https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+
+Install Git client on your workstation.
+https://git-scm.com/download/win
+
+Install OpenShift Container Platform CLI client tools for openshift 4.
+https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-windows.zip
+
+Installing terraform v.0.14.x
+https://www.terraform.io/downloads.html
+
+
+On Linux Workstation.
+
+https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
+
+cd ~
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
+mkdir openshift
+tar -zxvf openshift-client-linux.tar.gz -C openshift
+cd ~/openshift
+sudo mv oc /usr/local/bin/
+
+Git client
+sudo apt install git-all
+
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+or
+sudo apt-get update
+sudo apt-get install azure-cli
+
+sudo apt-get install unzip
+wget https://releases.hashicorp.com/terraform/0.14.9/terraform_0.14.9_linux_amd64.zip
+unzip terraform_0.14.9_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+terraform --version 
+
+
+On Mac Workstation
+
+Download binary zip from https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-mac.tar.gz
+Unzip
+echo $PATH and copy the binary to one of the paths showing by echo path.
+move or copy binary to a place in the path such as /usr/local/bin/
+mv $HOME/Downloads/oc /usr/local/bin/
+
+Steps
+Download binary zip from HashiCorp https://www.terraform.io/downloads.html
+Unzip
+move or copy binary to a place in the path such as /usr/local/bin/
+mv $HOME/Downloads/terraform /usr/local/bin/
+
+brew install git
+
+brew update && brew install azure-cli

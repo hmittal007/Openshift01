@@ -1,0 +1,19 @@
+
+oc get catalogsource -A  # to check the pull-secret is configured correctly.
+
+oc projects  # to get the list of all the projects
+oc new-project <project-name>  #to create new project
+oc project ostoy # to switch project
+oc delete project nginx # to delete or remove a project
+
+# deploying using templates available in opeshift hub.
+oc get templates -n openshift  # to get the list of all available to use templates in openshift hub.
+oc process openshift//nginx-example  # to see the dry run of a template
+oc process openshift//nginx-example | oc create -f - # to deploy a template
+oc process openshift//nginx-example | oc delete -f - # to delete a template
+
+# deploy and tidy up using json or yaml
+oc new-project nginx
+oc apply -f nginx.json
+oc delete -f nginx.json
+oc delete project nginx

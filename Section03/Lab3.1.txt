@@ -1,0 +1,31 @@
+# now lets login to aro cluster using oc cli
+# first list the aro credentials of cluster
+
+az aro list-credentials --name aro01 --resource-group aro-rg
+
+# its output will look like this
+{
+  "kubeadminPassword": "JXXuE-Lw8tQ-hJR3t-PXW2w",
+  "kubeadminUsername": "kubeadmin"
+}
+
+#to get the login user name
+az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminUsername' -o tsv
+
+#to get the admin user password
+az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv
+
+#example of console url
+https://console-openshift-console.apps.p77jlunm.westeurope.aroapp.io/
+
+#example of api url
+https://api.p77jlunm.westeurope.aroapp.io:6443/
+
+Now let us learn more about OpenShift Container Platform CLI client tools
+
+# login to aro cluster using username and password
+oc login $apiServer -u $adminUserName -p $adminPassword
+oc login https://api.addnsaro.westeurope.aroapp.io:6443/ -u kubeadmin -p PRKKX-mHAD7-zZKG8-aGJCM
+
+# login to aro cluster using sha token
+oc login --token=sha256~oll3YbbJVEZatUeYMPvezYyZWhA98SFXSftSFjjmzNQ --server=https://api.q3bdmypk.eastus.aroapp.io:6443

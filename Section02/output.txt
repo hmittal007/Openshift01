@@ -1,0 +1,65 @@
+{
+  "apiserverProfile": {
+    "ip": "20.54.128.224",
+    "url": "https://api.xj6ptlxn.westeurope.aroapp.io:6443/",
+    "visibility": "Public"
+  },
+  "clusterProfile": {
+    "domain": "xj6ptlxn",
+    "pullSecret": null,
+    "resourceGroupId": "/subscriptions/fb3bc7d0-ee5c-49c9-8e79-c16f06cd44dd/resourcegroups/aro-xj6ptlxn",
+    "version": "4.6.17"
+  },
+  "consoleProfile": {
+    "url": "https://console-openshift-console.apps.xj6ptlxn.westeurope.aroapp.io/"
+  },
+  "id": "/subscriptions/fb3bc7d0-ee5c-49c9-8e79-c16f06cd44dd/resourceGroups/aro-rg/providers/Microsoft.RedHatOpenShift/openShiftClusters/aro01",
+  "ingressProfiles": [
+    {
+      "ip": "20.54.128.165",
+      "name": "default",
+      "visibility": "Public"
+    }
+  ],
+  "location": "westeurope",
+  "masterProfile": {
+    "subnetId": "/subscriptions/fb3bc7d0-ee5c-49c9-8e79-c16f06cd44dd/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet/subnets/master-sub",
+    "vmSize": "Standard_D8s_v3"
+  },
+  "name": "aro01",
+  "networkProfile": {
+    "podCidr": "10.128.0.0/14",
+    "serviceCidr": "172.30.0.0/16"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "aro-rg",
+  "servicePrincipalProfile": {
+    "clientId": "7230b962-9275-4523-aa60-8b4b4ab754a5",
+    "clientSecret": null
+  },
+  "tags": null,
+  "type": "Microsoft.RedHatOpenShift/openShiftClusters",
+  "workerProfiles": [
+    {
+      "count": 1,
+      "diskSizeGb": 128,
+      "name": "aro01-gpnt7-worker-westeurope1",
+      "subnetId": "/subscriptions/fb3bc7d0-ee5c-49c9-8e79-c16f06cd44dd/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet/subnets/worker-sub",
+      "vmSize": "Standard_D4s_v3"
+    },
+    {
+      "count": 1,
+      "diskSizeGb": 128,
+      "name": "aro01-gpnt7-worker-westeurope2",
+      "subnetId": "/subscriptions/fb3bc7d0-ee5c-49c9-8e79-c16f06cd44dd/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet/subnets/worker-sub",
+      "vmSize": "Standard_D4s_v3"
+    },
+    {
+      "count": 1,
+      "diskSizeGb": 128,
+      "name": "aro01-gpnt7-worker-westeurope3",
+      "subnetId": "/subscriptions/fb3bc7d0-ee5c-49c9-8e79-c16f06cd44dd/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet/subnets/worker-sub",
+      "vmSize": "Standard_D4s_v3"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+Prerequisites
+
+An Azure subscription with appropriate permissions.
+(contributor and user access administrator permissions or owner permissions).
+
+Create a free GitHub account as well for this lab.
+
+Request an increase quota limit as for this lab by raising an azure support ticket, you need atleast 40 vcpu compute resources.
+https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests
+
+Create a Red Hat free account and download pull-secret.txt file
+https://cloud.redhat.com/openshift/install/azure/aro-provisioned
+
+#log on to azure cloud first
+az login
+
+#set correct subscription
+az account set -s "subscription_name"
+
+#check the correct subscription is set as default
+az account list
+
+#then Register the required 3 providers by running following commands.
+
+  #Register the Microsoft.RedHatOpenShift resource provider:
+  az provider register -n Microsoft.RedHatOpenShift --wait
+  #check the provider is registered or not
+  az provider show -n Microsoft.RedHatOpenShift --query registrationState
+  
+  #Register the Microsoft.Compute resource provider:
+  az provider register -n Microsoft.Compute --wait
+  #check the provider is registered or not
+  az provider show -n Microsoft.Compute --query registrationState
+  
+  #Register the Microsoft.Storage resource provider:
+  az provider register -n Microsoft.Storage --wait
+  #check the provider is registered or not
+  az provider show -n Microsoft.Storage --query registrationState
+
+A workstation computer or laptop where you can install all the management software tools to manage Aro Cluster.

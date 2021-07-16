@@ -1,0 +1,10 @@
+Under the hood, it creates following resources, Please check their presence.
+
+3 master nodes of Standard_D8s_v3 sku size vms
+3 worker nodes of Standard_D4s_v3 sku size vms
+A load balancer
+2 public ip address
+  one for api server profile access
+  one for ingress profile access
+and a service principal account with a custom role.
+2 storage account one for imagestream and second for boot diag logs for all the vms.

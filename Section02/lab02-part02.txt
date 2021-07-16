@@ -1,0 +1,48 @@
+# to update a cluster
+az aro update --name
+              --resource-group
+              [--no-wait]
+              [--subscription]
+
+az aro list -o table # to list all aro cluster instances
+
+# to create a cluster with custom settings
+
+az aro create --master-subnet \
+              --name \
+              --resource-group \
+              --worker-subnet \
+              [--apiserver-visibility {Private, Public}] \
+              [--client-id] \
+              [--client-secret] \
+              [--domain] \
+              [--ingress-visibility {Private, Public}] \
+              [--location] \
+              [--master-vm-size] \
+              [--pod-cidr] \
+              [--pull-secret] \
+              [--service-cidr] \
+              [--subscription] \
+              [--tags] \
+              [--vnet] \
+              [--vnet-resource-group] \
+              [--worker-count] \
+              [--worker-vm-disk-size-gb] \
+              [--worker-vm-size]
+
+clusterResourceGroup=aro-rg
+clusterName=aro01
+
+# to get the api url for an aro cluster using command line tool
+az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv
+
+Good to know these commands as well, these can be useful to remove aro cluster with its spa
+
+#get service prinicipal id
+clientid=az aro show -g $clusterResourceGroup -n $clusterName --query "servicePrincipalProfile.clientId" -o tsv
+
+#Deleting an aro cluster
+az aro delete -g $clusterResourceGroup -n $clusterName
+
+# once you get the id, you can remove the spa after deleting an aro cluster
+az ad sp delete --id $clientid
